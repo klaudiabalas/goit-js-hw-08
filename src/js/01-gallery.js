@@ -1,4 +1,5 @@
 // Dodatkowy import stylów
+import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { galleryItems } from './gallery-items.js';
@@ -14,34 +15,11 @@ gallery.innerHTML = arrayGallery.join('');
 
 arrayGallery.insertAdjacentHTML('afterbegin', arrayGallery);
 
-gallery.addEventListener('click', event => {
-  event.preventDefault();
-  const clicked = event.target;
-  if (clicked.nodeName !== 'IMG') {
-    return;
-  }
-
-  const lightbox = basicLightbox.create(
-    `
-      <img src="${event.target.dataset.source}" width="800" height="600">`,
-    {
-      onShow: lightbox => {
-        document.addEventListener('keydown', onEscape);
-      },
-      onClose: () => {
-        document.removeEventListener('keydown', onEscape);
-      },
-    }
-  );
-
-  lightbox.show();
+document.addEventListener('DOMContentLoaded', function () {
+  const lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+  });
 });
-
-let activeLightbox;
-
-function onEscape(event) {
-  if (event.key !== 'Escape' || !activeLightbox) return;
-  activeLightbox.close();
-}
 
 console.log(galleryItems);
