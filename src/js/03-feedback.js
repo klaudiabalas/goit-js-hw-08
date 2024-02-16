@@ -15,7 +15,7 @@ try {
   }, 500);
   form.addEventListener('input', stringMessage);
 } catch (error) {
-  console.log('error with toStringMessage' + error);
+  console.log('error with stringMessage' + error);
 }
 
 function storedMessage() {
@@ -33,8 +33,8 @@ function storedMessage() {
 
 storedMessage();
 
-form.addEventListener('submit', evt => {
-  evt.preventDefault();
+form.addEventListener('submit', e => {
+  e.preventDefault();
   console.log({
     email: email.value,
     message: message.value,
