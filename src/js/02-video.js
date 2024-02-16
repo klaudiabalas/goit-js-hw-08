@@ -7,7 +7,7 @@ const saveTime = time => {
   localStorage.setItem('videoplayer-current-time', time);
 };
 
-const setTimeFromStorage = () => {
+const setCurrenTimeFromStorage = () => {
   const time = localStorage.getItem('videoplayer-current-time');
   if (time !== null) {
     player.setCurrentTime(parseFloats(time));
