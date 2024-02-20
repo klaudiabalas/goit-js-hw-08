@@ -3,7 +3,7 @@ import throttle from 'lodash.throttle';
 const form = document.querySelector('.feedback-form');
 const storageKey = 'feedback-form-state';
 const email = document.querySelector("input[name = 'email']");
-const massage = document.querySelector("textarea[name='message']");
+const message = document.querySelector("textarea[name='message']");
 
 try {
   const stringMessage = throttle(() => {
