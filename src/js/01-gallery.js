@@ -14,6 +14,8 @@ const arrayGallery = galleryItems
   )
   .join('');
 
+gallery.insertAdjacentHTML('afterbegin', arrayGallery);
+
 document.addEventListener('DOMContentLoaded', function () {
   const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
